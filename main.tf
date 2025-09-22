@@ -70,10 +70,17 @@ resource "aws_iam_role" "eks_cluster_role" {
     ]
   })
 
-  managed_policy_arns = [
-    "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-    "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
-  ]
+# Attach EKS Cluster Policy
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+# Attach VPC Full Access Policy
+resource "aws_iam_role_policy_attachment" "eks_vpc_policy" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
+}
 }
 
 # Create EKS Cluster
