@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  AWS_REGION: us-west-2
+  aws-region: us-west-2
   EKS_CLUSTER_NAME: my-cluster
 
 jobs:
