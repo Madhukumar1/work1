@@ -16,7 +16,7 @@ resource "aws_vpc" "eks_vpc" {
 }
 
 # Create Subnets
-resource "aws_subnet" "eks_subnet" {
+resource "aws-subnet" "eks-subnet" {
   count = 2
   vpc_id = aws_vpc.eks_vpc.id
   cidr_block = cidrsubnet(aws_vpc.eks_vpc.cidr_block, 8, count.index)
