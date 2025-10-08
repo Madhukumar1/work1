@@ -3,6 +3,8 @@
 provider "aws" {
   region = "us-west-2"
 }
+# Data source to fetch available AZs
+data "aws_availability_zones" "available" {}
 
 # Create VPC
 resource "aws_vpc" "eks_vpc" {
