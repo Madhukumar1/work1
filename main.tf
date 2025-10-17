@@ -118,7 +118,7 @@ resource "aws_iam_role" "eks_node_group_role" {
 resource "aws_eks_node_group" "eks_node_group" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "eks-node-group"
-  node_role       = aws_iam_role.eks_node_group_role.arn
+  node_role_arn   = aws_iam_role.eks_node_group_role.arn
   subnet_ids      = aws_subnet.eks_subnet[*].id
 
   scaling_config {
