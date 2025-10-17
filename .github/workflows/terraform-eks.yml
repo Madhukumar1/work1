@@ -42,7 +42,7 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-      - name: Terraform Apply
+      - name: Terraform Apply "tfplan"
         run: terraform destroy -auto-approve tfplan
 
       - name: EKS Cluster Update
